@@ -98,3 +98,17 @@
      </div>
    </div>
  </template>
+
+ <script>
+     async function loadCorgis() {
+       const data = await fetch('/.netlify/functions/load-corgis')
+         .then((res) => res.json())
+         .catch((err) => console.error(err));
+   
+       data.forEach((corgi) => {
+         console.log(corgi);
+       });
+     }
+   
+     loadCorgis();
+ </script>
